@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 
 //Socket.io
 var server = http.createServer(app);
-const io = new Server(server, { cors: { origin: ["http://localhost:3000"] } });
+const io = new Server(server, { cors: { origin: [process.env.CLIENT] } });
 
 //IO handle
 io.on("connection", (socket) => {
