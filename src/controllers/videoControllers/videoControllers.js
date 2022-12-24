@@ -199,9 +199,30 @@ export const unLikeCommentVideo = async (req, res) => {
     });
 
     let arr = currentVideo.comment;
+    let update = false;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].id === video.commentId) {
         arr[i].liker.splice(arr[i].liker.indexOf(video.userName), 1);
+        update = true;
+        break;
+      }
+    }
+    if (!update) {
+      for (let i = 0; i < arr.length; i++) {
+        if (!update) {
+          for (let j = 0; j < arr[i].reply.length; j++) {
+            if (arr[i].reply[j].id === video.commentId) {
+              arr[i].reply[j].liker.splice(
+                arr[i].reply[j].liker.indexOf(video.userName),
+                1
+              );
+              update = true;
+              break;
+            }
+          }
+        } else {
+          break;
+        }
       }
     }
 
