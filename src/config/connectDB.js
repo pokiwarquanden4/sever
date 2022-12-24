@@ -11,7 +11,7 @@ const connect = async () => {
     );
     console.log("DTB connected");
   } catch (err) {
-    console.log("Error");
+    console.log(err);
   }
 };
 
