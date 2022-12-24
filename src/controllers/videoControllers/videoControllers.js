@@ -234,7 +234,8 @@ export const updateVideoComment = async (req, res) => {
         for (let i = 0; i < currentVideo.comment.length; i++) {
           if (currentVideo.comment[i].id === comment.commentId) {
             currentVideo.comment[i].reply.push({
-              id: comment.commentId,
+              id: uuidv4(),
+              parentId: comment.commentId,
               name: comment.name,
               avatar: comment.avatar,
               title: comment.title,
