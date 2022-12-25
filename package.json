@@ -4,6 +4,9 @@
   "description": "",
   "main": "sever.js",
   "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "nodemon src/sever.js",
     "test": "echo \"Error: no test specified\" && exit 1"
